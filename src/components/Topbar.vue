@@ -40,7 +40,8 @@
               class="nav-link"
               :to="{name: 'userProfile', params: {slug: currentUser.username}}"
               active-class="active"
-              ><img class="user-pic" :src="currentUser.img" /> &nbsp;
+              ><img class="user-pic" :src="currentUser.image" /> &nbsp;
+
               {{ currentUser.username }}</router-link
             >
           </li>

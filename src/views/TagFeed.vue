@@ -4,7 +4,7 @@
     <div class="container page">
       <div class="row">
         <div class="col-md-9">
-          <mcv-feed-toggler />
+          <mcv-feed-toggler :tag-name="tagName" />
           <mcv-feed :api-url="apiUrl" />
         </div>
         <div class="col-md-3"><mcv-popular-tags /></div>
@@ -21,10 +21,13 @@ import McvFeedToggler from '@/components/FeedToggler'
 export default {
   name: 'McvGlobalFeed',
   components: {McvFeed, McvBanner, McvPopularTags, McvFeedToggler},
-  data() {
-    return {
-      apiUrl: '/articles',
-    }
+  computed: {
+    tagName() {
+      return this.$route.params.slug
+    },
+    apiUrl() {
+      return `/articles?tag=${this.tagName}`
+    },
   },
 }
 </script>
